@@ -1,6 +1,6 @@
 <script setup>
     import { ref } from 'vue'
-    const brand = ref ('🏢 Fictional Company Directory')
+    const brand = ref ('🖥️ Fictional Company Directory')
 </script>
 
 <template>
