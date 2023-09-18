@@ -20,7 +20,7 @@
 
 <style scoped lang="postcss">
     nav {
-        @apply flex h-20 bg-red-500 text-white;
+        @apply flex h-20 bg-red-700 text-white;
         .wrapper{
             @apply container mx-auto flex w-full items-center justify-between;
         }
@@ -35,7 +35,7 @@
                     @apply rounded-md font-bold px-4 py-2 hover:bg-orange-300 hover:text-slate-900;
                 }
                 &-login {
-                    @apply rounded-md font-bold bg-orange-300 px-4 py-2 hover:bg-red-600 hover:text-slate-900 hover:font-bold;
+                    @apply rounded-md font-bold bg-orange-300 px-4 py-2 hover:bg-red-500 hover:text-slate-900 hover:font-bold;
                 }
             }
     }       
