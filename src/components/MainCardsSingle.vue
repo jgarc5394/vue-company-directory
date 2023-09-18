@@ -10,7 +10,7 @@
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" @clicked="selectCard">
         <div class="card-image">
             <img :src="faker.internet.avatar()" alt="" srcset="" />
         </div>
