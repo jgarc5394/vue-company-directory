@@ -1,6 +1,10 @@
 <script setup>
     import { ref } from 'vue'
-    const brand = ref ('🖥️ Fictional Company Directory')
+    import { useAuth } from '@/composables/useAuth'
+
+    const { isAuthenticated, logout, user } = useAuth()
+
+    const brand = ref('🖥️ Fictional Company Directory')
 </script>
 
 <template>
@@ -10,9 +14,14 @@
                 <span class="brand-title">{{ brand }}</span>
             </RouterLink>
             <div class="menu">
-                <a href="#" class="menu-item">Departments</a>
-                <a href="#" class="menu-item">Settings</a>
-                <a href="#" class="menu-login">Logout</a>
+                <p v-show="isAuthenticated" class="px-4 py-4">Welcome Back <strong><i>{{ user.name }}</i></strong></p>
+                <div v-if="isAuthenticated">
+                    <RouterLink :to="{ name: 'Settings' }" href="#" class="menu-item">Settings</RouterLink>
+                    <button href="#" class="menu-logout" @click="logout">Logout</button>
+                </div> 
+                <div v-else>
+                    <RouterLink :to="{ name: 'Login' }" href="#" class="menu-login">Login</RouterLink>
+                </div>       
             </div>
         </div>
     </nav>
@@ -31,11 +40,17 @@
             }
             .menu {
                 @apply flex gap-2;
+                & div {
+                    @apply py-2;
+                }
                 &-item {
                     @apply rounded-md font-bold px-4 py-2 hover:bg-orange-300 hover:text-slate-900;
                 }
                 &-login {
-                    @apply rounded-md font-bold bg-orange-300 px-4 py-2 hover:bg-red-500 hover:text-slate-900 hover:font-bold;
+                    @apply rounded-md font-bold bg-orange-300 px-4 py-2 hover:bg-green-400 hover:text-slate-900 hover:font-bold;
+                }
+                &-logout {
+                    @apply mx-2 rounded-md font-bold bg-orange-300 px-4 py-2 hover:bg-red-500 hover:text-slate-900 hover:font-bold;
                 }
             }
     }       
