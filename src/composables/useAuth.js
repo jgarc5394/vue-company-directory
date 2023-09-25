@@ -36,7 +36,7 @@ export const useAuth = () => {
     const logout = () => {
         isAuthenticated.value = false
         user.value = {}
-        router.push({ name: 'Home'})
+        router.push({ name: 'Login'})
     }
     return { isAuthenticated, user, login, logout }
 }
