@@ -14,7 +14,7 @@
                 <span class="brand-title">{{ brand }}</span>
             </RouterLink>
             <div class="menu">
-                <p v-show="isAuthenticated" class="px-4 py-4">Welcome Back <strong><i>{{ user.name }}</i></strong></p>
+                <p v-show="isAuthenticated" class="px-4 py-4">Welcome Back <strong><i>{{ user?.email }}</i></strong></p>
                 <div v-if="isAuthenticated">
                     <RouterLink :to="{ name: 'Settings' }" href="#" class="menu-item">Settings</RouterLink>
                     <button href="#" class="menu-logout" @click="logout">Logout</button>
